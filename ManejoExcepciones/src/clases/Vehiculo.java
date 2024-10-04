@@ -10,9 +10,10 @@ public class Vehiculo implements InterfazLeer{
 	private String marca;
 	private String modelo;
 	private Integer valor;
+	private Integer iva;
 	private Date fechaFabricacion;
-	private Calendar calendario;
-	private SimpleDateFormat formato;
+	protected Calendar calendario;
+	protected SimpleDateFormat formato;
 	
 	public Vehiculo() {
 		
@@ -61,7 +62,8 @@ public class Vehiculo implements InterfazLeer{
 		
 		try {
 			System.out.println(" Ingrese la fecha de Fabricación del Vehiculo ::: FORMATO - 01/01/2024)");
-			fechaFabricacion= formato.parse(leer.nextLine());
+			String fechaStr = leer.nextLine();
+			fechaFabricacion= formato.parse(fechaStr);
 			calendario.setTime(fechaFabricacion);
 		}catch(ParseException e) {
 			System.err.println("error: " + e.getMessage()+ " por favor use el formato 01/01/2024");
@@ -77,21 +79,21 @@ public class Vehiculo implements InterfazLeer{
 		System.out.println("Ingrese el valor del Vehículo");
 		valor = leer.nextInt();
 		leer.nextLine();
+		setIva();
 		
 	}
 	
-	public Integer getIva() {
-		Integer iva = valor * (19 / 100);
-		return iva;
-	}
+	public void setIva() {
+        iva = (valor * 19 / 100);
+    }
 
-	@Override
-	public String toString() {
-		return "Vehiculo [patente=" + patente + ", marca=" + marca + ", modelo=" + modelo + ", valor=" + valor
-				+ ", fechaFabricacion=" + fechaFabricacion + ", calendario=" + calendario + ", formato=" + formato
-				+ ", getIva()=" + getIva() + "]";
-	}
-	
+    public Integer getIva() {
+        return iva;
+    }
 
-	
+    public Integer getValorVenta() {
+        return (valor + iva);
+    }
+
+		
 }

@@ -51,7 +51,7 @@ public class Moto extends Vehiculo implements InterfazLeer{
 	@Override
 	public String toString() {
 		return "Moto [ Patente= " + getPatente()+ ", Marca= " + getMarca() + ", Modelo= " + getModelo() + ", Fecha de Fabricacion= "
-				+ getFechaFabricacion() + "Conducción ="+ conduccion +", Valor= " + getValor() + ", Valor de Venta =" + getIva() + "]";
+				+ formato.format(calendario.getTime()) + "Conducción ="+ conduccion +", Valor= " + getValor() + ", Valor Venta= " + getValorVenta() + "]";
 	}
 
 

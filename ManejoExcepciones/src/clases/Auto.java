@@ -63,7 +63,7 @@ public class Auto extends Vehiculo implements InterfazLeer {
 	@Override
 	public String toString() {
 		return "Auto [ Patente= " + getPatente()	+ ", Marca= " + getMarca() + ", Modelo= " + getModelo() + ", Fecha de Fabricacion= "
-				+ getFechaFabricacion() + "Cantidad de Puertas= " + cantidadPuertas + ", Tipo= " + tipo + ", Valor= " + getValor() + ",Valor de Venta =" + getIva() + "]";
+				+ formato.format(calendario.getTime()) + ", Cantidad de Puertas= " + cantidadPuertas + ", Tipo= " + tipo + ", Valor= " + getValor() + ", Valor Venta= " + getValorVenta() + "]";
 	}
 
 
